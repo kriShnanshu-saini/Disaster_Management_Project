@@ -201,4 +201,14 @@ section.banner{
         min-width: 230px;
         width: 90%;
     }
+
+    .modal{
+        width: 80%;
+    }
+    .modal .modal__icon i{
+        font-size: 4rem;
+    }
+    .modal .modal__body{
+        font-size: .95rem;
+    }
 }

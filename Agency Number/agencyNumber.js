@@ -45,11 +45,6 @@ overlay.addEventListener('click', hideModal);
 
 closeModalBtn?.addEventListener('click', hideModal);
 
-
-
-
-
-
 // * --------------------------------------------------------------
 
 
