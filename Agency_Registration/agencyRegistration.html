@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <title>Register your agency</title>
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./agencyRegistration.css">
+    <script src="./agencyRegistration.js" defer></script>
+
+    <!-- F O N T S -------------------------------------------- -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- ------------------------------------------------------ -->
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <i class="ri-menu-line" data-function="open-menu"></i>
+            <a href="#" id="logo">APATKAL</a>
+        
+            <div class="menu">
+                <i class="ri-close-line" data-function="close-menu"></i>
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="#">Home</a></li>
+                    <li class="nav-item">
+                        <a href="#">Emergency Numbers</a>
+                    </li>
+                    <li class="nav-item"><a href="#">Agency Login</a></li>
+                </ul>
+            </div>
+        </nav>        
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Register</h1>
+        <small>Please enter details of your agency to register</small>
+        <form action="" method="post">
+            <div class="form-element">
+                <label for="agency-name">Name</label>
+                <input type="text" name="Name" id="agency-name" title="Enter your name" placeholder="Agency's name">
+            </div>
+            
+            <div class="form-element">
+                <label for="agency-email">Email</label>
+                <input type="email" name="Email" id="agency-email" title="Enter your email" placeholder="Email address">
+            </div>
+            
+            <div class="form-element">
+                <label for="agency-number">Phone Number</label>
+                <div class="number-inputs">
+                    <select name="country-code" id="country-code">
+                        <option value="91" selected>India (+91)</option>
+                        <option value="1">United States (+1)</option>
+                        <option value="61">Australia (+61)</option>
+                        <option value="1">Canada (+1)</option>
+                        <option value="94">Sri Lanka (+94)</option>
+                    </select>
+                    <input type="tel" name="Number" id="agency-number" title="Enter your phone number">
+                </div>
+            </div>
+            
+            <div class="form-element">
+                <label for="government-id">Government ID</label>
+                <div class="govID-inputs">
+                    <select name="type-of-id" id="id-type">
+                        <option selected default disabled>Type of ID</option>
+                        <option value="jpeg">JPEG</option>
+                        <option value="pdf">PDF</option>
+                        <option value="doc">Document</option>
+                    </select>
+                    <input type="file" name="upload-id" id="upload-id-doc" placeholder="Upload document">
+                </div>
+            </div>
+
+            <button data-function="send-otp">Send OTP&nbsp; →</button>
+            <p>Already account? <a href="./agencyLogin.html">Login</a></p>
+        </form>
+        </div>
+    </main>
+
+</body>
+</html>
