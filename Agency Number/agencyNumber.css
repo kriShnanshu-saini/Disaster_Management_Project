@@ -134,6 +134,61 @@ section.banner{
     font-size: 2rem;
 }
 
+
+.overlay{
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+
+    display: none;
+
+    z-index: 8;
+}
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    place-items: center;
+    gap: 1rem;
+    
+    width: 28%;
+
+    background-color: #fff;
+    padding: 2.5rem 1rem;
+    padding-top: 3rem;
+    border-radius: .75rem;
+
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+
+    z-index: 9;
+}
+.modal .modal__icon > i{
+    font-size: 5rem;
+    color: #19873E;
+}
+.modal > .modal__body{
+    text-align: center;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+.modal__body  span[data-calledTo]{
+    font-weight: bold;
+    color: #E18585;
+}
+.modal > i[data-function = "close-modal"]{
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.show{
+    display: grid;
+}
+
+
 @media screen and (max-width: 780px)  {
     html{
         font-size:calc(1rem / 1.2);
@@ -145,5 +200,15 @@ section.banner{
     .emergency-contacts > ul > li.contact{
         min-width: 230px;
         width: 90%;
+    }
+
+    .modal{
+        width: 80%;
+    }
+    .modal .modal__icon i{
+        font-size: 4rem;
+    }
+    .modal .modal__body{
+        font-size: .95rem;
     }
 }
