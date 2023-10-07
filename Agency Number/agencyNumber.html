@@ -43,7 +43,7 @@
         <div class="emergency-contacts">
 
             <ul class="contact-container">
-                <!-- <li class="contact">
+                <li class="contact">
                     <div class="contact__content">
                         <h3 class="contact__name">Fire Station (101)</h3>
                         <div class="contact-info">
@@ -54,19 +54,22 @@
                     <div class="contact__icon">
                         <i class="ri-phone-fill"></i>
                     </div>
-                </li> -->
+                </li>
             </ul>
 
         </div>
 
     </section>
 
+    <div class="overlay"></div>
     <div class="modal">
+        <i class="ri-close-line" data-function="close-modal"></i>
         <div class="modal__icon">
             <i class="ri-checkbox-circle-fill"></i>
         </div>
         <div class="modal__body">
-            
+            <p>You had called "<span data-calledTo></span>"</p>
+            <p>Help will be arrived shortly</p>
         </div>
     </div>
 

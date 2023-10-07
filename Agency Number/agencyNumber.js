@@ -13,11 +13,53 @@ closeMenuBtn?.addEventListener("click", () => {
 
 
 
+// * Modal functionality ------------------------------------------
+
+const contactContainer = document.querySelector('.contact-container');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const closeModalBtn = document.querySelector('[data-function = "close-modal"]');
+
+function hideModal(){
+    modal.classList.remove('show');
+    overlay.classList.remove('show');
+}
+
+contactContainer.addEventListener('click', (event) => {
+    if (event.target.closest('.contact__icon')){
+
+        const contactName = event.target.closest('.contact').querySelector('.contact__name').textContent;
+        modal.querySelector('[data-calledTo]').textContent = contactName;
+
+        modal.classList.add('show');
+        overlay.classList.add('show');
+    }
+});
+
+document.addEventListener('keydown', event => {
+    if ((event.key === 'Escape') && modal.classList.contains('show'))
+        hideModal();
+})
+
+overlay.addEventListener('click', hideModal);
+
+closeModalBtn?.addEventListener('click', hideModal);
+
+
+
+
+
+
+// * --------------------------------------------------------------
+
+
 
 // * Fetch contact details from DB and show them ------------------
 
 function fetchContacts() {
     return new Promise((resolve, reject) => {
+
+        // * connect to database here
         fetch('')
             // .then(response => resolve({
             //     name: 'Ambulance',
