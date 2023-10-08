@@ -1,46 +1,46 @@
 /* @import '../navBar.css'; */
-:root{
-    --font: 'Poppins', sans-serif;
+:root {
+    --font: "Poppins", sans-serif;
     --primary: rgb(183, 183, 183);
     --secondary: #333;
-    --padding: .75rem;
+    --padding: 0.75rem;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body{
+html,
+body {
     width: 100%;
     height: 100%;
     font-family: var(--font);
 }
 
-a{
+a {
     color: inherit;
     text-decoration: none;
     transition: all 200ms ease-out;
 }
 
-li{
-    list-style:none;
+li {
+    list-style: none;
 }
 
-i{
-    padding: .5rem;
+i {
+    padding: 0.5rem;
     color: inherit;
     cursor: pointer;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-
 /* NAVIGATION BAR ================================ */
-nav{
+nav {
     font-size: 1.25rem;
     background-color: var(--primary);
     padding: var(--padding);
@@ -48,51 +48,50 @@ nav{
 
     z-index: 1;
 }
-nav a{
-    margin-left: .25rem;
+nav a {
+    margin-left: 0.25rem;
     letter-spacing: 1px;
 }
 
-nav > .menu{
+nav > .menu {
     position: absolute;
     left: 0;
     top: 0;
     width: 25%;
     height: 100vh;
 
-    padding: .75rem;
+    padding: 0.75rem;
 
     background-color: rgb(224, 224, 224);
-    border-radius: 0 .5rem .5rem 0;
+    border-radius: 0 0.5rem 0.5rem 0;
 
     transform: translateX(-100%);
     transition: transform 200ms ease;
 
     z-index: 10;
 }
-nav .menu > i[data-function = "close-menu" ]{
+nav .menu > i[data-function="close-menu"] {
     color: var(--secondary);
     font-size: 2rem;
-    
-    margin-left: calc(90% - .75rem);
+
+    margin-left: calc(90% - 0.75rem);
 }
-nav .menu > ul.nav-links{
+nav .menu > ul.nav-links {
     margin-block-start: 2rem;
     overflow: hidden;
 }
-.nav-links > li.nav-item{
-    padding: var(--padding) .5rem;
-    border-radius: .5rem;
+.nav-links > li.nav-item {
+    padding: var(--padding) 0.5rem;
+    border-radius: 0.5rem;
     transition: all 200ms ease;
     cursor: pointer;
 }
-.nav-item:is(:hover, :focus){
+.nav-item:is(:hover, :focus) {
     background-color: var(--primary);
 }
-.nav-item:is(:hover, :focus) a{
-    margin-left: .75rem;
+.nav-item:is(:hover, :focus) a {
+    margin-left: 0.75rem;
 }
-
 
 /* MAIN ============================================================ */
 
@@ -139,12 +138,12 @@ form > div.form-element {
 .form-element :is(input, select):focus {
     border: 2px solid var(--secondary);
 }
-.form-element > small.err-msg{
+.form-element > small.err-msg {
     color: rgb(234, 23, 23);
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     padding: 0;
 }
-.form-element > small.err-msg > i{
+.form-element > small.err-msg > i {
     padding-inline: 0;
     font-size: 1rem;
 }
@@ -158,56 +157,55 @@ form > div.form-element {
     letter-spacing: 1px;
     height: 100%;
 }
-.form-element :where(.number-inputs){
+.form-element :where(.number-inputs) {
     align-items: center;
 }
-.form-element :where(.number-inputs) > .number-verify{
+.form-element :where(.number-inputs) > .number-verify {
     display: flex;
     border: 1px solid var(--primary);
-    border-radius: .4rem;
+    border-radius: 0.4rem;
 }
-.form-element :where(.number-inputs) > .number-verify > input[type="tel"]{
+.form-element :where(.number-inputs) > .number-verify > input[type="tel"] {
     border: 0;
     /* background-color: lightsteelblue; */
     margin-top: 0;
 }
-.send-code{
+.send-code {
     /* background-color: lightcyan; */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-
 }
-.send-code > i{
+.send-code > i {
     display: none;
     /* display: block; */
     font-size: 1.5rem;
     color: green;
-    margin-inline: .76rem .3rem;
+    margin-inline: 0.76rem 0.3rem;
 }
-.form-element :where(.number-inputs) > .number-verify button.send-otp{
+.form-element :where(.number-inputs) > .number-verify button.send-otp {
     display: grid;
     /* display: none; */
     place-items: center;
-    
+
     background: transparent;
     font-size: calc(1rem / 1.1);
     font-family: inherit;
 
     border: 0;
     border-left: 1px solid var(--primary);
-    
+
     padding: 0;
-    padding-inline: .5rem;
-    margin-block: .4rem;
+    padding-inline: 0.5rem;
+    margin-block: 0.4rem;
 
     cursor: pointer;
 }
-.form-element :where(label[for="otp-input"]) ~ .resend-otp{
-    margin-top: .5rem;
+.form-element :where(label[for="otp-input"]) ~ .resend-otp {
+    margin-top: 0.5rem;
 }
-.resend-otp > .timer{
+.resend-otp > .timer {
     color: #000;
     font-weight: 600;
 }
@@ -219,32 +217,33 @@ form > div.form-element {
     padding: 0;
     height: 100%;
 }
-::-webkit-file-upload-button{
+::-webkit-file-upload-button {
     background-color: transparent;
     border: 0;
     border-right: 1px solid var(--primary);
     outline: 0;
 
-    padding: .8rem 1rem;
+    padding: 0.8rem 1rem;
     margin-right: 1rem;
     background-color: #ebebeb;
 }
 
-.form-element :where(.password-input){
+.form-element :where(.password-input) {
     /* background-color: lightcyan; */
     display: flex;
     align-items: center;
 
     border: 1px solid var(--primary);
-    border-radius: .3rem;
+    border-radius: 0.3rem;
 }
-.form-element :where(.password-input) > input{
+.form-element :where(.password-input) > input {
     flex: 1;
     margin-top: 0;
     border: 0;
+    outline: 0;
     /* border-right: 1px solid black; */
 }
-.form-element :where(.password-input) > .password-visibility-icons{
+.form-element :where(.password-input) > .password-visibility-icons {
     width: 3rem;
     position: relative;
     display: grid;
@@ -253,12 +252,12 @@ form > div.form-element {
     border-left: 1px solid var(--primary);
     padding: 1rem;
 }
-.form-element :where(.password-input) > .password-visibility-icons > i{
+.form-element :where(.password-input) > .password-visibility-icons > i {
     position: absolute;
     font-size: 1.25rem;
 }
 
-div[data-visible="false"]{
+div[data-visible="false"] {
     display: none !important;
 }
 
@@ -282,10 +281,10 @@ form button[data-function="register"] {
     border-radius: 0.4rem;
 
     transition: all 100ms ease;
-} 
-form button[data-function="register"]:is(:disabled){
-    opacity: .7;
-    cursor:not-allowed;
+}
+form button[data-function="register"]:is(:disabled) {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 form button[data-function="register"]:not(:disabled):is(:hover) {
     background-color: #fff;
@@ -293,7 +292,6 @@ form button[data-function="register"]:not(:disabled):is(:hover) {
     font-weight: 600;
     border: 2px solid #000;
 }
-
 
 form > p:last-child {
     font-size: calc(1rem / 1.15);

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+        <title>Register your agency</title>
+        <link rel="stylesheet" href="./agencyLogin.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+        <!-- F O N T S -------------------------------------------- -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+        <!-- ------------------------------------------------------ -->
+    
+        <script src="./agencyLogin.js" defer></script>
+        
+    </head>
+    <body>
+        <header>
+            <nav>
+                <i class="ri-menu-line" data-function="open-menu"></i>
+                <a href="#" id="logo">APATKAL</a>
+    
+                <div class="menu">
+                    <i class="ri-close-line" data-function="close-menu"></i>
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="../index.html">Home</a></li>
+                        <li class="nav-item"><a href="../Agency Number/agencyNumber.html">Emergency Numbers</a></li>
+                        <li class="nav-item"><a href="../Agency Login/agencyLogin.html">Agency Login</a></li>
+                    </ul>
+                </div>
+            </nav>      
+        </header>
+
+        <main>
+            <div class="container">
+                <h1>Login</h1>
+                <form action="" method="post">
+                    <div class="form-element">
+                        <label for="input-email">Email</label>
+                        <input type="email" name="email" id="input-email" title="Enter your email" placeholder="Enter your email address" required pattern="^[\w\.-]+@[\w\.-]+\.\w+$">
+                        <small class="err-msg hide"><i class="ri-error-warning-line"></i> Invalid email address</small>
+                    </div>
+
+                    <div class="form-element">
+                        <label for="password">Password</label>
+                        <div class="password-input">
+                            <input type="password" name="Password" id="password" required>
+                            <div class="password-visibility-icons">
+                                <i class="ri-eye-line show-password hide" data-password-type="text"></i>
+                                <i class="ri-eye-off-line hide-password " data-password-type="password"></i>
+                            </div>
+                        </div>
+                        <small class="err-msg hide"><i class="ri-error-warning-line"></i> Passwords does not match</small>
+                    </div>
+
+                    <button type="submit" data-function="login">Login</button>
+                    <p>Don't have an account? <a href="../Agency_Registration/agencyRegistration.html">Register</a></p>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
