@@ -1,93 +1,94 @@
 /* @import '../navBar.css'; */
-:root {
-    --font: "Poppins", sans-serif;
+:root{
+    --font: 'Poppins', sans-serif;
     --primary: rgb(183, 183, 183);
     --secondary: #333;
-    --padding: 0.75rem;
+    --padding: .75rem;
 }
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body{
     width: 100%;
     height: 100%;
     font-family: var(--font);
-    /* overflow: hidden; */
 }
 
-a {
+a{
     color: inherit;
     text-decoration: none;
     transition: all 200ms ease-out;
 }
 
-li {
-    list-style: none;
+li{
+    list-style:none;
 }
 
-i {
-    padding: 0.5rem;
+i{
+    padding: .5rem;
     color: inherit;
     cursor: pointer;
 }
+
+
 /* NAVIGATION BAR ================================ */
-nav {
+nav{
     font-size: 1.25rem;
     background-color: var(--primary);
     padding: var(--padding);
     position: relative;
 
-    z-index: 0;
+    z-index: 1;
 }
-nav a {
-    margin-left: 0.25rem;
+nav a{
+    margin-left: .25rem;
     letter-spacing: 1px;
 }
 
-nav .menu {
+nav > .menu{
     position: absolute;
     left: 0;
     top: 0;
     width: 25%;
     height: 100vh;
 
-    padding: 0.75rem;
+    padding: .75rem;
 
     background-color: rgb(224, 224, 224);
-    border-radius: 0 0.5rem 0.5rem 0;
+    border-radius: 0 .5rem .5rem 0;
 
     transform: translateX(-100%);
     transition: transform 200ms ease;
 
-    z-index: 2;
+    z-index: 10;
 }
-nav .menu > i[data-function="close-menu"] {
+nav .menu > i[data-function = "close-menu" ]{
     color: var(--secondary);
     font-size: 2rem;
-
-    margin-left: calc(90% - 0.75rem);
+    
+    margin-left: calc(90% - .75rem);
 }
-nav .menu > ul.nav-links {
+nav .menu > ul.nav-links{
     margin-block-start: 2rem;
     overflow: hidden;
 }
-.nav-links > li.nav-item {
-    padding: var(--padding) 0.5rem;
-    border-radius: 0.5rem;
+.nav-links > li.nav-item{
+    padding: var(--padding) .5rem;
+    border-radius: .5rem;
     transition: all 200ms ease;
     cursor: pointer;
 }
-.nav-item:is(:hover, :focus) {
+.nav-item:is(:hover, :focus){
     background-color: var(--primary);
 }
-.nav-item:is(:hover, :focus) a {
-    margin-left: 0.75rem;
+.nav-item:is(:hover, :focus) a{
+    margin-left: .75rem;
 }
+
 
 /* MAIN ============================================================ */
 
@@ -96,7 +97,7 @@ main {
     width: 100%;
     /* height: 100%; */
     /* background-color: lightblue; */
-    position: relative;
+    /* position: relative; */
     display: grid;
     place-items: center;
 }
@@ -137,7 +138,7 @@ form > div.form-element {
 .form-element :where(.number-inputs, .govID-inputs) {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 .form-element :where(.number-inputs) > * {
     flex: 1;
@@ -145,6 +146,7 @@ form > div.form-element {
 }
 .form-element :where(.govID-inputs) > input[type="file"] {
     border: 0;
+    flex: 1;
 }
 
 form button[data-function="send-otp"] {

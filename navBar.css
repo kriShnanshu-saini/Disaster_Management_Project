@@ -1,0 +1,53 @@
+/* NAVIGATION BAR ================================ */
+nav{
+    font-size: 1.25rem;
+    background-color: var(--primary);
+    padding: var(--padding);
+    position: relative;
+
+    z-index: 0;
+}
+nav a{
+    margin-left: .25rem;
+    letter-spacing: 1px;
+}
+
+nav .menu{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25%;
+    height: 100vh;
+
+    padding: .75rem;
+
+    background-color: rgb(224, 224, 224);
+    border-radius: 0 .5rem .5rem 0;
+
+    transform: translateX(-100%);
+    transition: transform 200ms ease;
+
+    z-index: 2;
+}
+nav .menu > i[data-function = "close-menu" ]{
+    color: var(--secondary);
+    font-size: 2rem;
+    
+    margin-left: calc(90% - .75rem);
+}
+nav .menu > ul.nav-links{
+    margin-block-start: 2rem;
+    overflow: hidden;
+}
+.nav-links > li.nav-item{
+    padding: var(--padding) .5rem;
+    border-radius: .5rem;
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+.nav-item:is(:hover, :focus){
+    background-color: var(--primary);
+}
+.nav-item:is(:hover, :focus) a{
+    margin-left: .75rem;
+}
