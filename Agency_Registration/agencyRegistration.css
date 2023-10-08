@@ -34,6 +34,10 @@ i{
     cursor: pointer;
 }
 
+.hide{
+    display: none;
+}
+
 
 /* NAVIGATION BAR ================================ */
 nav{
@@ -135,6 +139,15 @@ form > div.form-element {
 .form-element :is(input, select):focus {
     border: 2px solid var(--secondary);
 }
+.form-element > small.err-msg{
+    color: rgb(234, 23, 23);
+    margin-top: .5rem;
+    padding: 0;
+}
+.form-element > small.err-msg > i{
+    padding-inline: 0;
+    font-size: 1rem;
+}
 .form-element :where(.number-inputs, .govID-inputs) {
     display: flex;
     flex-wrap: wrap;
@@ -143,20 +156,120 @@ form > div.form-element {
 .form-element :where(.number-inputs) > * {
     flex: 1;
     letter-spacing: 1px;
+    height: 100%;
+}
+.form-element :where(.number-inputs){
+    align-items: center;
+}
+.form-element :where(.number-inputs) > .number-verify{
+    display: flex;
+    border: 1px solid var(--primary);
+    border-radius: .4rem;
+}
+.form-element :where(.number-inputs) > .number-verify > input[type="tel"]{
+    border: 0;
+    /* background-color: lightsteelblue; */
+    margin-top: 0;
+}
+.send-code{
+    /* background-color: lightcyan; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}
+.send-code > i{
+    display: none;
+    /* display: block; */
+    font-size: 1.5rem;
+    color: green;
+    margin-inline: .76rem .3rem;
+}
+.form-element :where(.number-inputs) > .number-verify button.send-otp{
+    display: grid;
+    /* display: none; */
+    place-items: center;
+    
+    background: transparent;
+    font-size: calc(1rem / 1.1);
+    font-family: inherit;
+
+    border: 0;
+    border-left: 1px solid var(--primary);
+    
+    padding: 0;
+    padding-inline: .5rem;
+    margin-block: .4rem;
+
+    cursor: pointer;
+}
+.form-element :where(label[for="otp-input"]) ~ .resend-otp{
+    margin-top: .5rem;
+}
+.resend-otp > .timer{
+    color: #000;
+    font-weight: 600;
 }
 .form-element :where(.govID-inputs) > input[type="file"] {
-    border: 0;
+    border: 1px solid var(--primary);
     flex: 1;
+    margin-left: 1rem;
+    /* background-color: red; */
+    padding: 0;
+    height: 100%;
+}
+::-webkit-file-upload-button{
+    background-color: transparent;
+    border: 0;
+    border-right: 1px solid var(--primary);
+    outline: 0;
+
+    padding: .8rem 1rem;
+    margin-right: 1rem;
+    background-color: #ebebeb;
 }
 
-form button[data-function="send-otp"] {
-    width: 45%;
+.form-element :where(.password-input){
+    /* background-color: lightcyan; */
+    display: flex;
+    align-items: center;
+
+    border: 1px solid var(--primary);
+    border-radius: .3rem;
+}
+.form-element :where(.password-input) > input{
+    flex: 1;
+    margin-top: 0;
+    border: 0;
+    /* border-right: 1px solid black; */
+}
+.form-element :where(.password-input) > .password-visibility-icons{
+    width: 3rem;
+    position: relative;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-left: 1px solid var(--primary);
+    padding: 1rem;
+}
+.form-element :where(.password-input) > .password-visibility-icons > i{
+    position: absolute;
+    font-size: 1.25rem;
+}
+
+div[data-visible="false"]{
+    display: none !important;
+}
+
+form button[data-function="register"] {
+    width: 100%;
     background-color: #000;
     display: block;
 
     padding: 1rem;
     margin-inline: auto;
-    margin-block: 2.5rem 1rem;
+    margin-block: 3.5rem 1rem;
 
     color: #fff;
     font-family: inherit;
@@ -169,13 +282,19 @@ form button[data-function="send-otp"] {
     border-radius: 0.4rem;
 
     transition: all 100ms ease;
+} 
+form button[data-function="register"]:is(:disabled){
+    opacity: .7;
+    cursor:not-allowed;
 }
-form button[data-function="send-otp"]:hover {
+form button[data-function="register"]:not(:disabled):is(:hover) {
     background-color: #fff;
     color: #000;
     font-weight: 600;
     border: 2px solid #000;
 }
+
+
 form > p:last-child {
     font-size: calc(1rem / 1.15);
     text-align: center;
