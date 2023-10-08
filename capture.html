@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="capture.css">
+
+</head>
+
+<body>
+    <nav>
+    </nav>
+
+    <div class="container">
+        <div id="left"></div>
+        <div id="right">
+            <div id="right_inner">
+                <div id="image">
+                    <video id="webcam" autoplay playsinlne></video>
+                    <i id="close" class="ri-close-circle-fill" onClick="closeImage()"></i>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <a id="snap" download onClick="takePicture()">SNAP</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const webcamElement = document.getElementById('webcam');
+        const canvasElement = document.getElementById('canvas');
+        const snapElement = document.getElementById('snap');
+        const closeElement = document.getElementById('close');
+
+
+        const webcam = new Webcam(webcamElement, 'user', canvasElement);
+        function openCam() {
+            webcam.start()
+                .then(result => {
+                    console.log("webcam started");
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
+        openCam();
+
+        function takePicture() {
+            const picture = webcam.snap();
+            webcam.stop();
+            webcamElement.style.display = "none";
+            canvasElement.style.display = "block";
+            snap.innerHTML = "SUBMIT";
+            snap.style.bottom = "15%";
+            closeElement.style.display = "block";
+
+        }
+        function closeImage() {
+            openCam();
+            webcamElement.style.display = "block";
+            canvasElement.style.display = "none";
+            closeElement.style.display = "none";
+            snap.innerHTML = "SNAP";
+            snap.style.bottom = "5%";
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

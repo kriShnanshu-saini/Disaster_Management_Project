@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
 <body>
     <nav>
     </nav>
@@ -21,61 +23,63 @@
             </div>
             <div id="lower_right">
             </div>
-            
+
         </div>
     </div>
 
-<script>
-    printRequest();
-    var request= document.getElementById('request');
-    var needHelp=document.getElementById('needHelp');
-    var assign=document.getElementById('assign');
+    <script>
+        printRequest();
+        var request = document.getElementById('request');
+        var needHelp = document.getElementById('needHelp');
+        var assign = document.getElementById('assign');
 
-    needHelp.addEventListener("click",()=>{
-    request.style.color="gray";
-    needHelp.style.color="black";
-        printHelp();
-}
-    );
-    request.addEventListener("click",()=>{
-    request.style.color="black";
-    needHelp.style.color="Gray";
-    printRequest();
-}
-    );
-    assign.addEventListener("click",()=>{
-        request.style.display="none";
-        needHelp.style.display="none";
-        assign.style.display='none';
+        needHelp.addEventListener("click", () => {
+            request.style.color = "gray";
+            needHelp.style.color = "black";
+            printHelp();
+        }
+        );
+        request.addEventListener("click", () => {
+            request.style.color = "black";
+            needHelp.style.color = "Gray";
+            printRequest();
+        }
+        );
+        assign.addEventListener("click", () => {
+            request.style.display = "none";
+            needHelp.style.display = "none";
+            assign.style.display = 'none';
 
-        document.getElementById('upper_right').innerHTML=`<i id="back" style="left:5%;"class="ri-arrow-left-fill"></i>
+            document.getElementById('upper_right').innerHTML = `<i id="back" style="left:5%;"class="ri-arrow-left-fill"></i>
         <h3>Assigned Request</h3>`;
-        printAssign();
-}
-    );
-   
-    
-    function printHelp(){
-        var array=[
-            {"img":"https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
-           "type":"Fire Hazard",
-           "location":"Sultanpur Village",
-            "distance":30,
-            "time":15
-        },
-        {"img":"https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
-           "type":"Fire Hazard",
-           "location":"Sultanpur Village",
-            "distance":30,
-            "time":15
-        },
-        
-        ]
-        var lower_right=document.getElementById('lower_right');
-        lower_right.innerHTML="";
-        for(var i=0;i<array.length;i++){
+            printAssign();
+        }
+        );
 
-            lower_right.innerHTML+=`<div class="request_card">
+
+        const printHelp = () => {
+            var array = [
+                {
+                    "img": "https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
+                    "type": "Fire Hazard",
+                    "location": "Sultanpur Village",
+                    "distance": 30,
+                    "time": 15
+                },
+                {
+                    "img": "https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
+                    "type": "Fire Hazard",
+                    "location": "Sultanpur Village",
+                    "distance": 30,
+                    "time": 15
+                },
+
+            ]
+            var lower_right = document.getElementById('lower_right');
+            lower_right.innerHTML = "";
+            for (var i = 0; i < array.length; i++) {
+
+                lower_right.innerHTML += `<div class="request_card">
                     <img src=${array[i].img} alt="">
                     <div class="inner_card">
                         <h1>${array[i].type}</h1>
@@ -84,36 +88,39 @@
                         <h3>Time to Reach: ${array[i].time}</h3>
                     </div>
                 </div>`;
-            console.log("hello");
+                console.log("hello");
+            }
         }
-    }
-    function printRequest(){
-        var array=[
-            {"img":"https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
-           "type":"Fire Hazard",
-           "location":"Sultanpur Village",
-            "distance":30,
-            "time":15
-        },
-        {"img":"https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
-           "type":"Fire Hazard",
-           "location":"Sultanpur Village",
-            "distance":30,
-            "time":15
-        },
-        {"img":"https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
-           "type":"Fire Hazard",
-           "location":"Sultanpur Village",
-            "distance":30,
-            "time":15
-        },
-        
-        ]
-        var lower_right=document.getElementById('lower_right');
-        lower_right.innerHTML="";
-        for(var i=0;i<array.length;i++){
+        function printRequest() {
+            var array = [
+                {
+                    "img": "https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
+                    "type": "Fire Hazard",
+                    "location": "Sultanpur Village",
+                    "distance": 30,
+                    "time": 15
+                },
+                {
+                    "img": "https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
+                    "type": "Fire Hazard",
+                    "location": "Sultanpur Village",
+                    "distance": 30,
+                    "time": 15
+                },
+                {
+                    "img": "https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
+                    "type": "Fire Hazard",
+                    "location": "Sultanpur Village",
+                    "distance": 30,
+                    "time": 15
+                },
 
-            lower_right.innerHTML+=`<div class="request_card">
+            ]
+            var lower_right = document.getElementById('lower_right');
+            lower_right.innerHTML = "";
+            for (var i = 0; i < array.length; i++) {
+
+                lower_right.innerHTML += `<div class="request_card">
                     <img src=${array[i].img} alt="">
                     <div class="inner_card">
                         <h1>${array[i].type}</h1>
@@ -122,23 +129,24 @@
                         <h3>Time to Reach: ${array[i].time}</h3>
                     </div>
                 </div>`;
-            
-        }
-    }
-    function printAssign(){
-        var array=[
-            {"img":"https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
-           "type":"Fire Hazard",
-           "location":"Sultanpur Village",
-            "distance":30,
-            "time":15
-        },
-        ]
-        var lower_right=document.getElementById('lower_right');
-        lower_right.innerHTML="";
-        for(var i=0;i<array.length;i++){
 
-            lower_right.innerHTML+=`<div class="request_card">
+            }
+        }
+        function printAssign() {
+            var array = [
+                {
+                    "img": "https://disasterscharter.org/documents/10180/6939177/Brazil-fires-tm.jpg",
+                    "type": "Fire Hazard",
+                    "location": "Sultanpur Village",
+                    "distance": 30,
+                    "time": 15
+                },
+            ]
+            var lower_right = document.getElementById('lower_right');
+            lower_right.innerHTML = "";
+            for (var i = 0; i < array.length; i++) {
+
+                lower_right.innerHTML += `<div class="request_card">
                     <img src=${array[i].img} alt="">
                     <div class="inner_card">
                         <h1>${array[i].type}</h1>
@@ -147,12 +155,11 @@
                         <h3>Time to Reach: ${array[i].time}</h3>
                     </div>
                 </div>`;
-            
+
+            }
         }
-    }
 
-
-
-</script>
+    </script>
 </body>
+
 </html>
