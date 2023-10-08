@@ -25,3 +25,4 @@ passwordField.querySelector('.password-visibility-icons').addEventListener('clic
     passwordField.querySelector('input#password').setAttribute('type', type);
 })
 // * ----------------------------------------------------------------
+
