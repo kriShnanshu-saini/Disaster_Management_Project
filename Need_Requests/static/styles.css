@@ -1,0 +1,58 @@
+/* Reset some default styles and add some basic styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #FF5733; /* Change the color on hover */
+}
+
+/* Style the buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darken the color on hover */
+}
+
+/* Add some spacing */
+.nav {
+    margin-top: 20px;
+}
