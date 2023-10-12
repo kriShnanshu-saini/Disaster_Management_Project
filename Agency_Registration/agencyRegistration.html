@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <title>Register your agency</title>
     <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    <title>Register your agency</title>
     <link rel="stylesheet" href="./agencyRegistration.css">
-    <script src="./agencyRegistration.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <!-- F O N T S -------------------------------------------- -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
     <!-- ------------------------------------------------------ -->
+
+    <script src="./agencyRegistration.js" defer></script>
     
 </head>
 <body>
@@ -19,50 +22,63 @@
         <nav>
             <i class="ri-menu-line" data-function="open-menu"></i>
             <a href="#" id="logo">APATKAL</a>
-        
+
             <div class="menu">
                 <i class="ri-close-line" data-function="close-menu"></i>
                 <ul class="nav-links">
-                    <li class="nav-item"><a href="#">Home</a></li>
-                    <li class="nav-item">
-                        <a href="#">Emergency Numbers</a>
-                    </li>
-                    <li class="nav-item"><a href="#">Agency Login</a></li>
+                    <li class="nav-item"><a href="../index.html">Home</a></li>
+                    <li class="nav-item"><a href="../Agency Number/agencyNumber.html">Emergency Numbers</a></li>
+                    <li class="nav-item"><a href="../Agency Login/agencyLogin.html">Agency Login</a></li>
                 </ul>
             </div>
-        </nav>        
+        </nav>      
     </header>
 
     <main>
         <div class="container">
             <h1>Register</h1>
         <small>Please enter details of your agency to register</small>
-        <form action="" method="post">
+        <form action="" method="post" data-valid="false">
             <div class="form-element">
                 <label for="agency-name">Name</label>
-                <input type="text" name="Name" id="agency-name" title="Enter your name" placeholder="Agency's name">
+                <input type="text" name="Name" id="agency-name" title="Enter your name" placeholder="Agency's name" pattern="^[A-Za-z]+$" >
+                <small class="err-msg hide"><i class="ri-error-warning-line"></i> Must contain only alphabets</small>
             </div>
             
             <div class="form-element">
                 <label for="agency-email">Email</label>
-                <input type="email" name="Email" id="agency-email" title="Enter your email" placeholder="Email address">
+                <input type="email" name="Email" id="agency-email" title="Enter your email" placeholder="Email address" pattern="^[\w\.-]+@[\w\.-]+\.\w+$" >
+                <small class="err-msg hide"><i class="ri-error-warning-line"></i> Please enter valid email address</small>
             </div>
             
-            <div class="form-element">
+            <div class="form-element" data-is-verified="false">
                 <label for="agency-number">Phone Number</label>
                 <div class="number-inputs">
-                    <select name="country-code" id="country-code">
+                    <select name="country-code" id="country-code"  >
                         <option value="91" selected>India (+91)</option>
                         <option value="1">United States (+1)</option>
                         <option value="61">Australia (+61)</option>
                         <option value="1">Canada (+1)</option>
                         <option value="94">Sri Lanka (+94)</option>
                     </select>
-                    <input type="tel" name="Number" id="agency-number" title="Enter your phone number">
+                    <div class="number-verify">
+                        <input pattern="^[0-9]+$" type="tel" name="Number" id="agency-number" title="Enter your phone number" >
+                        <div class="send-code">
+                            <button type="submit" class="send-otp">Verify</button>
+                            <i class="ri-checkbox-circle-fill"></i>
+                        </div>
+                    </div>
                 </div>
+                <small class="err-msg hide"><i class="ri-error-warning-line"></i> Invalid phone number</small>
+            </div>
+
+            <div class="form-element frame-otp" data-visible="false">
+                <label for="otp-input">OTP</label>
+                <input type="text" name="OTP" id="otp-input" title="Enter OTP to verify your phone number"  pattern="[0-9]{6}" maxlength="6">
+                <small class="resend-otp">Didn't received code? Resend <span class="timer">00:20</span> </small>
             </div>
             
-            <div class="form-element">
+            <div class="form-element" data-visible="false">
                 <label for="government-id">Government ID</label>
                 <div class="govID-inputs">
                     <select name="type-of-id" id="id-type">
@@ -71,12 +87,39 @@
                         <option value="pdf">PDF</option>
                         <option value="doc">Document</option>
                     </select>
-                    <input type="file" name="upload-id" id="upload-id-doc" placeholder="Upload document">
+                    <input type="file" name="upload-id" id="government-i-d" placeholder="Upload document">
                 </div>
+                <small class="err-msg hide"><i class="ri-error-warning-line"></i> Select valid ID</small>
             </div>
 
-            <button data-function="send-otp">Send OTP&nbsp; →</button>
-            <p>Already account? <a href="./agencyLogin.html">Login</a></p>
+            <div class="form-element" data-visible="false">
+                <label for="password">Password</label>
+                <div class="password-input">
+                    <input type="text" name="adminPassword" id="password" placeholder="(must contain only alphabets, numbers and $,_,-)">
+                    <div class="password-visibility-icons">
+                        <i class="ri-eye-line show-password hide" data-password-type="text"></i>
+                        <i class="ri-eye-off-line hide-password" data-password-type="password"></i>
+                    </div>
+                </div>
+                <small class="err-msg hide"><i class="ri-error-warning-line"></i> Invalid password (does not match requirements)</small>
+            </div>
+
+            <div class="form-element" data-visible="false">
+                <label for="password">Confirm Password</label>
+                <div class="password-input">
+                    <input type="text" name="adminPassword" id="password">
+                    <div class="password-visibility-icons">
+                        <i class="ri-eye-line show-password hide" data-password-type="text"></i>
+                        <i class="ri-eye-off-line hide-password" data-password-type="password"></i>
+                    </div>
+                </div>
+                <small class="err-msg hide"><i class="ri-error-warning-line"></i> Passwords does not match</small>
+            </div>
+
+            <button type="submit" data-function="register" disabled>Register</button>
+            <p>Already account? <a href="../Agency Login/agencyLogin.html">Login</a></p>
+
+
         </form>
         </div>
     </main>

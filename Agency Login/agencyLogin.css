@@ -1,0 +1,228 @@
+:root {
+    --font: "Poppins", sans-serif;
+    --primary: rgb(183, 183, 183);
+    --secondary: #333;
+    --padding: 0.75rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: var(--font);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 200ms ease-out;
+}
+
+li {
+    list-style: none;
+}
+
+i {
+    padding: 0.5rem;
+    color: inherit;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+/* * NAVIGATION BAR ================================ */
+nav {
+    font-size: 1.25rem;
+    background-color: var(--primary);
+    padding: var(--padding);
+    position: relative;
+
+    z-index: 1;
+}
+nav a {
+    margin-left: 0.25rem;
+    letter-spacing: 1px;
+}
+
+nav > .menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25%;
+    height: 100vh;
+
+    padding: 0.75rem;
+
+    background-color: rgb(224, 224, 224);
+    border-radius: 0 0.5rem 0.5rem 0;
+
+    transform: translateX(-100%);
+    transition: transform 200ms ease;
+
+    z-index: 10;
+}
+nav .menu > i[data-function="close-menu"] {
+    color: var(--secondary);
+    font-size: 2rem;
+
+    margin-left: calc(90% - 0.75rem);
+}
+nav .menu > ul.nav-links {
+    margin-block-start: 2rem;
+    overflow: hidden;
+}
+.nav-links > li.nav-item {
+    padding: var(--padding) 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 200ms ease;
+    cursor: pointer;
+}
+.nav-item:is(:hover, :focus) {
+    background-color: var(--primary);
+}
+.nav-item:is(:hover, :focus) a {
+    margin-left: 0.75rem;
+}
+/* =========================================================== */
+
+
+main{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+main > .container{
+    width: 30%;
+    /* background-color: lightcyan; */
+    margin-block: 4rem;
+    padding: 2rem 1rem;
+}
+
+/* * F O R M ======================================== */
+.container > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* background-color: lightcoral; */
+    /* width: 100%; */
+    margin-top: 1.5rem;
+}
+form > div.form-element{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: .25rem;
+    margin-bottom: 1rem;
+    /* background-color: red; */
+    width: 100%;
+}
+.form-element  :is(input){
+    width: 100%;
+    padding: .5rem .5rem;
+    border-radius: .3rem;
+    border: 1px solid var(--primary);
+    outline: 0;
+    font-family: var(--font);
+}
+
+/* * Password input======================================= */
+.form-element :where(.password-input){
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    border: 1px solid var(--primary);
+    border-radius: .3rem;
+}
+.form-element :where(.password-input) > input{
+    flex: 1;
+    margin-top: 0;
+    border: 0;
+}
+.form-element :where(.password-input) > .password-visibility-icons{
+    width: 3rem;
+    position: relative;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border-left: 1px solid var(--primary);
+    padding: 1rem;
+}
+.form-element :where(.password-input) > .password-visibility-icons > i{
+    position: absolute;
+    font-size: 1.25rem;
+}
+
+
+
+/* * LOGIN Button ==================================== */
+form button[data-function="login"] {
+    width: 100%;
+    background-color: #000;
+    display: block;
+
+    padding: 1rem;
+    margin-inline: auto;
+    margin-block: 2.5rem 1rem;
+
+    color: #fff;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    border: 2px solid currentColor;
+    outline: none;
+    border-radius: 0.4rem;
+
+    transition: all 100ms ease;
+} 
+form button[data-function="login"]:is(:disabled){
+    opacity: .7;
+    cursor:not-allowed;
+}
+form button[data-function="login"]:not(:disabled):is(:hover) {
+    background-color: #fff;
+    color: #000;
+    font-weight: 600;
+    border: 2px solid #000;
+}
+
+/* * ================================================= */
+
+
+form > p:last-child {
+    font-size: calc(1rem / 1.15);
+    text-align: center;
+    color: rgb(104, 104, 104);
+    align-self: center;
+}
+form > p:last-child > a {
+    color: #000;
+    font-weight: 500;
+}
+form > p:last-child > a:hover {
+    text-decoration: underline;
+}
+
+
+/* * Error message ===================================== */
+.form-element > small.err-msg{
+    color: rgb(234, 23, 23);
+    margin-top: .5rem;
+    padding: 0;
+}
+.form-element > small.err-msg > i{
+    padding-inline: 0;
+    font-size: 1rem;
+}
