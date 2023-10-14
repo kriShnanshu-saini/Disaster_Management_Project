@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../logo.png" type="image/x-icon">
+    <title>Document</title>
+    <link rel="stylesheet" href="mapStyle.css">
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <div class="container">
+        <div id="inner">
+            <div id="inner_upper">
+                <h1>Enter Your Location</h1>
+                <input type="text">
+            </div>
+            <div id="inner_lower">
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClxebTjCVkWs0JaI3yb9RnZpNVXOOsMLQ&callback=initMap">
+        </script>
+    <script>
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 28.4595, lng: 77.0266 },
+                zoom: 8,
+            });
+            var marker = new google.maps.Marker({
+                position: { lat: 28.4595, lng: 77.0266 },
+                map: map,
+                title: location
+            });
+        }
+
+        window.initMap = initMap;
+
+
+        function printHelp() {
+            var array = [
+                {
+                    "img": "https://img.freepik.com/free-vector/flat-design-fire-station-department-illustrated_23-2149140957.jpg",
+                    "type": "Fire Station",
+                    "distance": 30,
+                },
+                {
+                    "img": "https://img.freepik.com/free-vector/flat-design-fire-station-department-illustrated_23-2149140957.jpg",
+                    "type": "Fire Station",
+                    "distance": 30,
+
+                },
+                {
+                    "img": "https://img.freepik.com/free-vector/flat-design-fire-station-department-illustrated_23-2149140957.jpg",
+                    "type": "Fire Station",
+                    "distance": 30,
+                },
+                {
+                    "img": "https://img.freepik.com/free-vector/flat-design-fire-station-department-illustrated_23-2149140957.jpg",
+                    "type": "Fire Station",
+                    "distance": 30,
+
+                },
+
+            ]
+            var inner_lower = document.getElementById('inner_lower');
+            for (var i = 0; i < array.length; i++) {
+
+                inner_lower.innerHTML += `<div class="request_card">
+                    <img src=${array[i].img} alt="">
+                    <div class="inner_card">
+                        <h1>${array[i].type}</h1>
+                        <h3>Distance : ${array[i].distance}</h3>
+                    </div>
+                </div>`;
+
+            }
+        }
+        printHelp();
+
+
+
+    </script>
+
+</body>
+
+</html>
