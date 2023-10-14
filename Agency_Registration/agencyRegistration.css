@@ -4,6 +4,7 @@
     --primary: rgb(183, 183, 183);
     --secondary: #333;
     --padding: 0.75rem;
+    --brdr-radius: .3rem;
 }
 
 * {
@@ -39,12 +40,17 @@ i {
     display: none;
 }
 
+button[disabled]{
+    cursor:not-allowed !important;
+}
+
 /* NAVIGATION BAR ================================ */
 nav {
     font-size: 1.25rem;
     background-color: var(--primary);
     padding: var(--padding);
     position: relative;
+    width: 100%;
 
     z-index: 1;
 }
@@ -65,6 +71,7 @@ nav > .menu {
     background-color: rgb(224, 224, 224);
     border-radius: 0 0.5rem 0.5rem 0;
 
+    visibility: hidden;
     transform: translateX(-100%);
     transition: transform 200ms ease;
 
@@ -98,25 +105,19 @@ nav .menu > ul.nav-links {
 main {
     padding: var(--padding);
     width: 100%;
-    /* height: 100%; */
-    /* background-color: lightblue; */
-    /* position: relative; */
     display: grid;
     place-items: center;
 }
 main > .container {
-    /* background-color: lightcoral; */
     padding: 1.5rem 2rem;
-    width: 40%;
+    width: clamp(300px, 40%, 35rem);
 }
 .container form {
-    /* border: 1px solid black; */
     margin-top: 1rem;
 }
 form > div.form-element {
     display: flex;
     flex-direction: column;
-    /* background-color: aquamarine; */
     padding-block: 0.5rem;
     margin-bottom: 0.5rem;
     font-family: var(--font);
@@ -126,7 +127,7 @@ form > div.form-element {
     margin-top: 0.25rem;
     letter-spacing: 0.5px;
     font-size: 1rem;
-    border-radius: 0.3rem;
+    border-radius: var(--brdr-radius);
     border: 1px solid var(--primary);
     outline: 0;
 }
@@ -149,7 +150,6 @@ form > div.form-element {
 }
 .form-element :where(.number-inputs, .govID-inputs) {
     display: flex;
-    flex-wrap: wrap;
     gap: 0.5rem;
 }
 .form-element :where(.number-inputs) > * {
@@ -164,14 +164,13 @@ form > div.form-element {
     display: flex;
     border: 1px solid var(--primary);
     border-radius: 0.4rem;
+    background-color: inherit;
 }
 .form-element :where(.number-inputs) > .number-verify > input[type="tel"] {
     border: 0;
-    /* background-color: lightsteelblue; */
     margin-top: 0;
 }
 .send-code {
-    /* background-color: lightcyan; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -179,14 +178,12 @@ form > div.form-element {
 }
 .send-code > i {
     display: none;
-    /* display: block; */
     font-size: 1.5rem;
     color: green;
     margin-inline: 0.76rem 0.3rem;
 }
 .form-element :where(.number-inputs) > .number-verify button.send-otp {
     display: grid;
-    /* display: none; */
     place-items: center;
 
     background: transparent;
@@ -213,7 +210,6 @@ form > div.form-element {
     border: 1px solid var(--primary);
     flex: 1;
     margin-left: 1rem;
-    /* background-color: red; */
     padding: 0;
     height: 100%;
 }
@@ -229,7 +225,6 @@ form > div.form-element {
 }
 
 .form-element :where(.password-input) {
-    /* background-color: lightcyan; */
     display: flex;
     align-items: center;
 
@@ -241,7 +236,6 @@ form > div.form-element {
     margin-top: 0;
     border: 0;
     outline: 0;
-    /* border-right: 1px solid black; */
 }
 .form-element :where(.password-input) > .password-visibility-icons {
     width: 3rem;
@@ -307,3 +301,46 @@ form > p:last-child > a:hover {
 }
 
 /* ================================================================= */
+
+@media screen and (max-width: 575px){
+
+    nav .menu{
+        width: 65%;
+        font-size: 1rem;
+    }
+
+    main > .container {
+        padding: .5rem .75rem;
+        width: 100%;
+    }
+
+    .form-element :is(input, select) {
+        width: 100%;
+    }
+
+    .form-element :where(.number-inputs, .govID-inputs) {
+        flex-wrap: wrap;
+    }
+
+    .form-element :where(.govID-inputs) > input[type="file"]{
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 1024px){
+
+    main > .container {
+        width: 80%;
+    }
+
+    .form-element :is(input) {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 1026px){
+    .form-element :is(input) {
+        width: 100%;
+    }
+}
