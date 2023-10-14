@@ -64,7 +64,7 @@
                     <div class="number-verify">
                         <input pattern="^[0-9]+$" type="tel" name="Number" id="agency-number" title="Enter your phone number" >
                         <div class="send-code">
-                            <button type="submit" class="send-otp">Verify</button>
+                            <button type="submit" class="send-otp" disabled >Verify</button>
                             <i class="ri-checkbox-circle-fill"></i>
                         </div>
                     </div>
@@ -83,11 +83,11 @@
                 <div class="govID-inputs">
                     <select name="type-of-id" id="id-type">
                         <option selected default disabled>Type of ID</option>
-                        <option value="jpeg">JPEG</option>
-                        <option value="pdf">PDF</option>
-                        <option value="doc">Document</option>
+                        <option value=".jpeg">JPEG</option>
+                        <option value=".pdf">PDF</option>
+                        <option value=".doc">Document</option>
                     </select>
-                    <input type="file" name="upload-id" id="government-i-d" placeholder="Upload document">
+                    <input type="file" name="upload-id" id="government-id" placeholder="Upload document">
                 </div>
                 <small class="err-msg hide"><i class="ri-error-warning-line"></i> Select valid ID</small>
             </div>
@@ -95,7 +95,7 @@
             <div class="form-element" data-visible="false">
                 <label for="password">Password</label>
                 <div class="password-input">
-                    <input type="text" name="adminPassword" id="password" placeholder="(must contain only alphabets, numbers and $,_,-)">
+                    <input type="password" name="adminPassword" id="initial-password" placeholder="(must contain only alphabets, numbers and $,_,-)">
                     <div class="password-visibility-icons">
                         <i class="ri-eye-line show-password hide" data-password-type="text"></i>
                         <i class="ri-eye-off-line hide-password" data-password-type="password"></i>
@@ -107,7 +107,7 @@
             <div class="form-element" data-visible="false">
                 <label for="password">Confirm Password</label>
                 <div class="password-input">
-                    <input type="text" name="adminPassword" id="password">
+                    <input type="password" name="adminPassword" id="confirm-password">
                     <div class="password-visibility-icons">
                         <i class="ri-eye-line show-password hide" data-password-type="text"></i>
                         <i class="ri-eye-off-line hide-password" data-password-type="password"></i>
