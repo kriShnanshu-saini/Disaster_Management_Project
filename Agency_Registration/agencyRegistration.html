@@ -51,7 +51,7 @@
                 <small class="err-msg hide"><i class="ri-error-warning-line"></i> Please enter valid email address</small>
             </div>
             
-            <div class="form-element" data-is-verified="true">
+            <div class="form-element" data-is-verified="false">
                 <label for="agency-number">Phone Number</label>
                 <div class="number-inputs">
                     <select name="country-code" id="country-code"  >
@@ -64,7 +64,7 @@
                     <div class="number-verify">
                         <input pattern="^[0-9]+$" type="tel" name="Number" id="agency-number" title="Enter your phone number" >
                         <div class="send-code">
-                            <button type="submit" class="send-otp" >Verify</button>
+                            <button type="submit" class="send-otp" disabled >Verify</button>
                             <i class="ri-checkbox-circle-fill"></i>
                         </div>
                     </div>

@@ -53,6 +53,7 @@ verifyBtn.addEventListener("click", (event) => {
 
 
 
+
 // * if otp is valid => change the data-is-verified = "true"
 // * ....
 // * ....
@@ -88,7 +89,9 @@ fileTypeEl.addEventListener('change', () => {
 })
 
 
-
+inputNumber.addEventListener('input', () => {
+    if(inputNumber.value.length === 10) verifyBtn.removeAttribute('disabled');
+})
 
 
 //  *  =================================================================================
